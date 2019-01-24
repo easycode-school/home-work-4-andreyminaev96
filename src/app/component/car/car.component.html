@@ -1,0 +1,22 @@
+<div>
+  <ul>
+    <li>{{car.mark}}</li>
+    <li>{{car.mileage}}</li>
+    <li>{{car.benzCapacity}}</li>
+    <li>{{car.currentBenz}}</li>
+    <li><b>Characteristics:</b>
+      <ul>
+        <li *ngFor="let char of car.characteristics">
+          {{ char }}
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+
+<button  [ngClass]="{'dBlock': car.currentBenz < this.handlerNumber}"(click)="driveCar()">Drive car</button>
+<button [ngClass]="{'dBlock': car.currentBenz >= this.handlerNumber}" (click)="fillCar()">Fill Car</button>
+
+<div *ngIf="car.currentBenz < this.handlerNumber">
+  <span style="color: red">{{ car.currentBenz }} liters of benz left. You need to fill your car!</span>
+</div>
